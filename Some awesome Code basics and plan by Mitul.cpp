@@ -1136,7 +1136,101 @@ It works
 
 Note: Find out why it did not work the last  time!!!!!!!!!
 
+##Converting from float to int and there fractional portion of the number is lost
+#include<stdio.h>
+int main(){
+    int i;
+    float f;
+    f=1234.0098;
+    i=f;
+    printf("%f %d",f,i);
+    return 0;
+}
+
+### Giving garbage value while copying from shoort int to long int
+#include<stdio.h>
+int main(){
+    short int si;
+    long int li;
+    li=100000;
+    si=li;
+    printf("%hd",si);
+    return 0;
+}
+
+### showing how to use type cast
+
+#include<stdio.h>
+#include<math.h>
+int main(){
+    double i;
+    for(i=0;i<101;i++){
+        printf("The square root of %lf is %lf\n",i,sqrt(i));
+        printf("Whole number part : %d ", (int) sqrt(i));
+        printf("Fractional part: %lf\n", sqrt(i)-(int)sqrt(i));
+        printf("\n");
+    }
+    return 0;
+}
 
 
+###
+#include<stdio.h>
+#include<conio.h>
+int main(){
+    char msg[80];
+    int i,x;
+
+    printf("Enter your message (not long than 80 characters) \n");
+    for(i=0;i<80;i++){
+        msg[i]=getche();
+        if(msg[i]=='\r') break;
+
+    }
+
+    printf("\n");
+    for(i=0;msg[i]!='\r';i++){
+        printf("%c",msg[i]);
+    }
+}
+
+Output:
+Enter your message (not long than 80 characters)
+hi mate
+hi mate
+hi mate
+Process finished with exit code 0
+
+Here you can see that your given input can be seen once and then again result can be seen
+ To solve this issue , you can print any oter thing before your desired output
+
+ the code will be:
+#include<stdio.h>
+#include<conio.h>
+int main(){
+    char msg[80];
+    int i,x;
+
+    printf("Enter your message (not long than 80 characters) \n");
+    for(i=0;i<80;i++){
+        msg[i]=getche();
+        if(msg[i]=='\r') break;
+
+    }
+    printf("Here is your desired output: ");
+    printf("\n");
+    for(i=0;msg[i]!='\r';i++){
+        printf("%c",msg[i]);
+    }
+}
+
+output:
+Enter your message (not long than 80 characters)
+hi mate
+Here is your desired output:
+hi mate
+Process finished with exit code 0
+
+Note: you may still see some garbage output ...If foound any ..know why?
 
 
