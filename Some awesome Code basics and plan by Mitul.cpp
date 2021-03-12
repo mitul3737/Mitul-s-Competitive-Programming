@@ -1234,3 +1234,30 @@ Process finished with exit code 0
 Note: you may still see some garbage output ...If foound any ..know why?
 
 
+####
+#include<stdio.h>
+
+void strcpy(char *to, char *from);
+int main(){
+    char str[80];
+    strcpy(str,"This is a test");
+    printf(str);
+    return 0;
+}
+
+void strcpy(char *to, char *from){
+    while(*from){
+        *to=*from;
+        *from++;
+        *to++;}
+
+}
+
+Description:
+here
+char  *from="This is a test" means that  in *from address there is the string "This is a string" kept
+        to=str means that to is positioned at the start of str[] array
+        then *from's index then increases and same for *to's too
+
+
+
