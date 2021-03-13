@@ -1261,3 +1261,86 @@ char  *from="This is a test" means that  in *from address there is the string "T
 
 
 
+###Recursion:
+#include<stdio.h>
+void recurse(int i);
+int main(){
+    recurse(0);
+    return 0;
+}
+
+void recurse(int i){
+    if(i<10){
+
+        printf("%d\n",i);
+        recurse(i+1);
+
+
+    }
+
+}
+
+here you will see output:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Process finished with exit code 0
+
+Now if we change this code to:
+
+#include<stdio.h>
+void recurse(int i);
+int main(){
+    recurse(0);
+    return 0;
+}
+
+void recurse(int i){
+    if(i<10){
+
+        printf("Before: ");
+        printf("%d\n",i);
+        recurse(i+1);
+        printf("After: ");
+        printf("%d\n",i);
+
+
+    }
+
+}
+
+output:
+Before: 0
+Before: 1
+Before: 2
+Before: 3
+Before: 4
+Before: 5
+Before: 6
+Before: 7
+Before: 8
+Before: 9
+After: 9
+After: 8
+After: 7
+After: 6
+After: 5
+After: 4
+After: 3
+After: 2
+After: 1
+After: 0
+
+Process finished with exit code 0
+
+reason:
+    for before , it was normal but if we see after, here actually happens is like
+            recurse(9) calls recurse(8) and it calls its before thing recurse(7) and all happen like this to recurse(0)
