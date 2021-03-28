@@ -33,7 +33,10 @@ int main(){
     long long int ans= 1;
     for(int i=0;i<n;i++){
         ans*=2;
-        ans%=mod; //Reason: as we have mod = 1e9+7 and thus it is a prime number and modular arithmatic problem . here we have to multiply and we are using long long int to abvoid overflow here.nOte: if we use modular arithmatic division, substraction , addition or multiplication , we mush mod . Means ans%=mod is must when you are doing any kind of mudular arithmatic problem and it is a theory
+        ans%=mod;//(basics:  when x^4 has to be detected from mod, we can do it like (((((x*x)%m)*x)%m)*x)%m and thus we have used ans%mod in loop and done modular multiplication and thus the value wll not increase that much
+
+
+        //Reason: as we have mod = 1e9+7 and thus it is a prime number and modular arithmatic problem . here we have to multiply and we are using long long int to abvoid overflow here.nOte: if we use modular arithmatic division, substraction , addition or multiplication , we mush mod . Means ans%=mod is must when you are doing any kind of mudular arithmatic problem and it is a theory
         //  when n= 3 output 8 if we don't use ans%=mod , but
         // when n= 10000  output will be 0 if we don't use ans%=mod . So, mod will help here and we have to use
         // to avoid overflow as ncan be of 10^6
