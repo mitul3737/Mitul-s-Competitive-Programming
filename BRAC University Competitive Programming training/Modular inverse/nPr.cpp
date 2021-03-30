@@ -1,9 +1,4 @@
-//nPr
 
-//Input:
-//5 3
-//Output:
-//5C3: 60
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,12 +10,12 @@ const ll mod=1e9+7;
 // function to detect inverse of anything
 ll modexpo(ll a , ll n, ll m ){
     if(n==1){
-        return a%m;
+        return a%mod;
     }
     ll y= modexpo(a,n/2,m);
-    y=y*y%m;
+    y=y*y%mod;
     if(n%2==1){
-        y=y*a%m;
+        y=y*a%mod;
     }
     return y;
 }
